@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  railroad: MyText
+  station: MyText
+  foot: 1
+  chintai: one
+
+two:
+  railroad: MyText
+  station: MyText
+  foot: 1
+  chintai: two

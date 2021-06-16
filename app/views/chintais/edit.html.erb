@@ -1,0 +1,66 @@
+<h1>物件編集</h1>
+<%= form_with(model: @chintai, local: true) do |form| %>
+  <% if @chintai.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chintai.errors.count, "error") %> "エラーが発生しました。"</h2>
+      <ul>
+      <% @chintai.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :'物件名' %>
+    <%= form.text_field :rentname %>
+  </div>
+
+  <div class="number">
+    <%= form.label :'賃料' %>
+    <%= form.text_field :wage %>円
+  </div>
+
+  <div class="field">
+    <%= form.label :'住所' %>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="number">
+    <%= form.label :'築年数' %>
+    <%= form.text_field :age %>年
+  </div>
+
+  <div class="field">
+    <%= form.label :'備考' %>
+    <%= form.text_area :remarks %>
+  </div>
+
+<hr>
+
+  <%= form.fields_for :routeinfos do |form| %>
+      <% if form.index < 3 %>
+          <h3>最寄駅<%= form.index + 1 %></h3>
+          <div class="fields">
+            <%= form.label :'路線名' %><br>
+            <%= form.text_field :railroad %>
+          </div>
+          <div class="fields">
+            <%= form.label :'駅名' %><br>
+            <%= form.text_field :station %>
+          </div>
+            <div class="number">
+            <%= form.label :'徒歩分数' %><br>
+            <%= form.text_field :foot %>分
+          </div>
+        <% end %>
+    <% end %>
+
+  <div class="actions">
+    <p></p>
+    <%= form.submit '更新する' %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', chintais_path %>
+

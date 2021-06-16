@@ -1,0 +1,38 @@
+<h1>物件詳細</h1>
+
+<p>
+  <strong>物件名:</strong>
+  <%= @chintai.rentname %>
+</p>
+
+<p>
+  <strong>賃料:</strong>
+  <%= @chintai.wage %>
+</p>
+
+<p>
+  <strong>住所:</strong>
+  <%= @chintai.address %>
+</p>
+
+<p>
+  <strong>築年数:</strong>
+  <%= @chintai.age %>
+</p>
+
+<p>
+  <strong>備考:</strong>
+  <%= @chintai.remarks %>
+</p>
+
+  <% count = 1 %>
+  <% @routeinfos.each do |route| %>
+    <h3>最寄駅 <%= count %></h3>
+    <p>路線名:<%= route.railroad %></p>
+    <p>駅名:<%= route.station %></p>
+    <p>徒歩分数:<%= route.foot %></p>
+    <% count += 1 %>
+  <% end %>
+
+<%= link_to '編集', edit_chintai_path%> | <%= link_to '戻る', chintais_path %>
+
